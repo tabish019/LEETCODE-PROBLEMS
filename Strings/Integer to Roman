@@ -1,0 +1,22 @@
+class Solution {
+    public String intToRoman(int num) {
+        HashMap<Character,Integer> map = new HashMap<>();
+        int[] values = {1,4,5,9,10,40,50,90,100,400,500,900,1000};
+         String[] symbols = {"I", "IV", "V", "IX", "X", "XL", "L", "XC",
+                            "C", "CD", "D", "CM", "M"};
+        StringBuilder result = new StringBuilder();
+        for(int i=values.length-1; i>=0 ;i--){
+            int val = values[i];
+            String sym = symbols[i];
+            int count = num/val;
+            while(count>0){
+                result.append(sym);
+                count--;
+            }
+            num = num % val;
+
+        }
+        return result.toString();
+        
+    }
+}
